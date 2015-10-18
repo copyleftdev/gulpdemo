@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var uglify = require('gulp-uglify');
+var sass = require('gulp-sass');
 
 
 //TASKS
@@ -19,6 +20,18 @@ gulp.task('scripts', function(){
       .pipe(gulp.dest('build/js/vendor'));
 });
 
+// SASS
+
+gulp.task('sass', function() {
+  gulp.src('sass/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('build/sass-compiled'));
+});
+
+gulp.task('sass:watch', function() {
+  gulp.watch('sass/**/*.scss',['sass'])
+})
+
 // Styles
 
 gulp.task('styles', function(){
@@ -26,8 +39,8 @@ gulp.task('styles', function(){
 });
 
 // Watch Tasks
-gulp.task('watch', function(){
+gulp.task('script:watch', function(){
   gulp.watch('js/**/*.js',['scripts'])
 })
 
-gulp.task('default',['scripts','styles','watch']);
+gulp.task('default',['scripts','styles','sass']);
