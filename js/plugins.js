@@ -10,7 +10,7 @@
     ];
     var length = methods.length;
     var console = (window.console = window.console || {});
-
+// test change yet another change
     while (length--) {
         method = methods[length];
 
