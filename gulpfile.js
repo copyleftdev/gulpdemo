@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
-var plumber = require('gulp-plumber');
+
 
 
 //TASKS
